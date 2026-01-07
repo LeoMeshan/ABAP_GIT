@@ -37,4 +37,3 @@ INITIALIZATION.
     ENDCASE.
   ENDLOOP.
 select * from vbak INTO TABLE gt_final.
-##Testing 
