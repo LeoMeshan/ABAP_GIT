@@ -1,16 +1,10 @@
-*&---------------------------------------------------------------------*
-*& Report ZITR236_1
-*&---------------------------------------------------------------------*
-*&
-*&---------------------------------------------------------------------*
 REPORT ZITR236_1.
 
-Write : / 'ABAP GIT Push 1'.
-Write : / 'ABAP GIT Push 2'.
-Write : / 'ABAP GIT Push 3'.
-Write : / 'ABAP GIT Push 20'.
-Write : / 'ABAP GIT Push 1'.
-Write : / 'ABAP GIT Push 2'.
-Write : / 'ABAP GIT Push 3'.
-Write : / 'ABAP GIT Push 20'.
-
+WRITE: / 'ABAP GIT Push 1',
+   / 'ABAP GIT Push 2',
+   / 'ABAP GIT Push 3',
+   / 'ABAP GIT Push 20',
+   / 'ABAP GIT Push 1',
+   / 'ABAP GIT Push 2',
+   / 'ABAP GIT Push 3',
+   / 'ABAP GIT Push 20'.
