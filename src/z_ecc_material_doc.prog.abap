@@ -1,35 +1,19 @@
-*&---------------------------------------------------------------------*
-*& Report Z_ECC_MATERIAL_DOC
-*&---------------------------------------------------------------------*
-*&
-*&---------------------------------------------------------------------*
-REPORT Z_ECC_MATERIAL_DOC.
+REPORT z_s4hana_material_doc.
 
-TABLES: mkpf, mseg.
+SELECT-OPTIONS: s_mblnr FOR mkpf-mblnr,
+   s_matnr FOR mseg-matnr.
 
-SELECT-OPTIONS: s_mblnr FOR mkpf-mblnr.
-SELECT-OPTIONS: s_matnr FOR mseg-matnr.
-
-SELECT mkpf~mblnr
-       mkpf~mjahr
-       mseg~matnr
-       mseg~menge
-       mseg~dmbtr
-  INTO (mkpf-mblnr,
-        mkpf-mjahr,
-        mseg-matnr,
-        mseg-menge,
-        mseg-dmbtr)
-  FROM mkpf
-  INNER JOIN mseg
-    ON mkpf~mblnr = mseg~mblnr
+SELECT FROM mkpf
+   INNER JOIN mseg ON mkpf~mblnr = mseg~mblnr
    AND mkpf~mjahr = mseg~mjahr
-  WHERE mkpf~mblnr IN s_mblnr
-    AND mseg~matnr IN s_matnr.
+   WHERE mkpf~mblnr IN @s_mblnr
+ AND mseg~matnr IN @s_matnr
+   INTO TABLE @DATA(lt_result).
 
-  WRITE: / mkpf-mblnr,
-           mkpf-mjahr,
-           mseg-matnr,
-           mseg-menge,
-           mseg-dmbtr.
-ENDSELECT.
+LOOP AT lt_result INTO DATA(ls_result).
+  WRITE: / ls_result-mblnr,
+   ls_result-mjahr,
+   ls_result-matnr,
+   ls_result-menge,
+   ls_result-dmbtr.
+ENDLOOP.
