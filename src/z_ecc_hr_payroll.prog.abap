@@ -18,4 +18,4 @@ EXPORTING
   employeenumber = '00000001'
   sequencenumber = ls_rgdir-seqnr.
 ENDIF.
-//
+// 
