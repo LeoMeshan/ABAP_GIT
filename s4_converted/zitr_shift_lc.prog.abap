@@ -1,0 +1,1 @@
+DATA lt_vbfa TYPE TABLE OF vbfa. SELECT vbelv vbeln posnn vkorg vtweg spart erdat ernam auart FROM vbfa INTO TABLE @lt_vbfa WHERE vbelv = '0080001234'.
